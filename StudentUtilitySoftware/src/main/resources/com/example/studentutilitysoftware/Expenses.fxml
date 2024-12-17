@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="790.0" prefWidth="755.0" style="-fx-background-color: DarkGrey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentutilitysoftware.ExpenseFeature.ExpenseController">
+   <children>
+      <VBox layoutY="-1.0" prefHeight="790.0" prefWidth="755.0">
+         <children>
+            <Label prefHeight="57.0" prefWidth="761.0" style="-fx-background-color: #011a11;">
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="44.0" prefWidth="769.0" text="KEEP A LOG OF YOUR EXPENSES" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Label>
+            <HBox prefHeight="83.0" prefWidth="755.0">
+               <children>
+                  <Label text="Enter Title">
+                     <HBox.margin>
+                        <Insets bottom="35.0" left="190.0" top="35.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Searchtf" prefHeight="31.0" prefWidth="250.0" promptText="Search" style="-fx-background-radius: 20;">
+                     <HBox.margin>
+                        <Insets bottom="35.0" left="10.0" top="35.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="Searchbtn" mnemonicParsing="false" onAction="#FilterByTitle" prefHeight="30.0" prefWidth="80.0" style="-fx-background-radius: 10; -fx-background-color: #011a11;" text="SEARCH" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="35.0" left="10.0" top="35.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="62.0" prefWidth="755.0">
+               <children>
+                  <Label text="FROM">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="130.0" top="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DateFrom" promptText="Date From" showWeekNumbers="true">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="10.0" top="32.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label text="TO">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="90.0" top="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DateTo" promptText="Date To" showWeekNumbers="true">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="10.0" top="32.0" />
+                     </HBox.margin>
+                  </DatePicker>
+               </children>
+            </HBox>
+            <TableView fx:id="ExpenseTable" prefHeight="200.0" prefWidth="738.0">
+              <columns>
+                <TableColumn fx:id="SrNoCol" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Sr no." />
+                <TableColumn fx:id="TitleCol" prefWidth="420.0" resizable="false" text="Title" />
+                  <TableColumn fx:id="DateCol" prefWidth="158.0" resizable="false" text="Date" />
+                  <TableColumn fx:id="AmountCol" prefWidth="100.0" resizable="false" text="Amount" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TableView>
+            <Separator prefWidth="200.0" />
+            <HBox prefHeight="328.0" prefWidth="755.0">
+               <children>
+                  <AnchorPane prefHeight="231.0" prefWidth="343.0">
+                     <children>
+                        <Label layoutX="26.0" layoutY="94.0" text="Title">
+                           <font>
+                              <Font name="Dubai Medium" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="207.0" text="Date">
+                           <font>
+                              <Font name="Dubai Medium" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="151.0" text="Amount">
+                           <font>
+                              <Font name="Dubai Medium" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="newAmounttf" layoutX="142.0" layoutY="151.0" promptText="Enter Amount" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="newTitletf" layoutX="142.0" layoutY="94.0" promptText="Enter title" style="-fx-background-radius: 7;" />
+                        <DatePicker fx:id="newDate" layoutX="142.0" layoutY="207.0" prefHeight="26.0" prefWidth="160.0" promptText="Date From" showWeekNumbers="true" />
+                        <Button fx:id="AddExpensebtn" layoutX="142.0" layoutY="263.0" mnemonicParsing="false" onAction="#AddExpense" prefHeight="31.0" prefWidth="160.0" style="-fx-background-radius: 25; -fx-background-color: #011a11;" text="ADD EXPENSE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label prefHeight="57.0" prefWidth="333.0" style="-fx-background-color: #011a11;">
+                           <graphic>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="333.0" text="ADD EXPENSE" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Separator orientation="VERTICAL" prefHeight="265.0" prefWidth="0.0" />
+                  <AnchorPane prefHeight="260.0" prefWidth="414.0">
+                     <children>
+                        <TableView fx:id="RecentExpenseTable" layoutX="10.0" layoutY="67.0" prefHeight="184.0" prefWidth="394.0">
+                          <columns>
+                            <TableColumn fx:id="RETitleCol" prefWidth="190.0" text="Title" />
+                            <TableColumn fx:id="REAmountCol" prefWidth="95.0" text="Amount" />
+                              <TableColumn fx:id="REDateCol" prefWidth="120.0" text="Date" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="14.0" layoutY="268.0" prefHeight="17.0" prefWidth="80.0" text="TOTAL:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <Label fx:id="TotalLabel" layoutX="100.0" layoutY="264.0" prefHeight="32.0" prefWidth="160.0" text="0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <Button fx:id="Savebtn" layoutX="339.0" layoutY="267.0" mnemonicParsing="false" onAction="#saveNewExpenses" prefHeight="26.0" prefWidth="60.0" style="-fx-background-radius: 10; -fx-background-color: #011a11;" text="SAVE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label prefHeight="57.0" prefWidth="413.0" style="-fx-background-color: #011a11;">
+                           <graphic>
+                              <Label alignment="CENTER" prefHeight="44.0" prefWidth="403.0" text="RECENLTY ADDED EXPENSES" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </graphic>
+                        </Label>
+                        <Button fx:id="Undobtn" layoutX="273.0" layoutY="267.0" mnemonicParsing="false" onAction="#UndoRecentlyAddedExpense" prefHeight="23.0" prefWidth="60.0" style="-fx-background-color: #011a11; -fx-background-radius: 10;" text="UNDO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
